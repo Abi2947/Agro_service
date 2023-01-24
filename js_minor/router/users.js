@@ -4,7 +4,7 @@ const router =Router();
 const mysqlConnection = require('../database/db');
 
 router.get('/',(req,res)=>{
-    res.status(200).json('Server on port 8000 and database is connected');
+    res.status(200).json('Server on port 3306 and database is connected');
 });
 
 router.get('/:users',(req,res)=>{

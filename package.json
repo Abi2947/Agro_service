@@ -4,12 +4,13 @@
     "mysql": "^2.18.1",
     "prompt-sync": "^4.2.0"
   },
-  "name": "f_api",
+  "name": "project_api",
   "version": "1.0.0",
   "description": "farmers data sheets that contains detail of all farmers",
-  "main": "F_API.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "index.js"
   },
   "author": "sagarmatha engineering college",
   "license": "ISC",

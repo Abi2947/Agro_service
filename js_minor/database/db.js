@@ -8,7 +8,6 @@ const mysqlConnection = mysql.createConnection({
     user: 'root',
     password: 'abinash123',
     database: 'minor'
-    
 });
 
 mysqlConnection.connect(function(error){
