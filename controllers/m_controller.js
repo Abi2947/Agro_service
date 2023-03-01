@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
-const User = require("../models/users_model");
+const machine = require("../models/machine_model");
 
 const salt = 1000;
 
 class UserController {
   register(req, res, next) {
     const payload = req.body;
-    const newuser = new User(payload);
-    newuser.save().then((data)=>{
+    const newmachine = new plots(payload);
+    newmachine.save().then((data)=>{
       res.json({
         msg: "la data aayo",
         data
@@ -27,12 +27,12 @@ class UserController {
           err,
         });
       }
-      newuser.password=hash;
-      newuser.save()
+      newmachine.password=hash;
+      newmachine.save()
       .then((data) => {
         res.json({
-          msg: "user saved successfully",
-          user: data,
+          msg: "plot saved successfully",
+          data,
         });
       })
       .catch((err) => {
@@ -44,12 +44,12 @@ class UserController {
     });
   }
 
-  getUser(req,res,next){
-    User.find()
+  getmachine(req,res,next){
+    plots.find()
     .then((data) =>{
       res.json({
-        msg:"user successfully fetched",
-        user:data,
+        msg:"plot successfully fetched",
+        data,
       });
     })
     .catch((err)=>{
@@ -59,24 +59,24 @@ class UserController {
       });
     });
   }
-  getUserByID(req,res,next){
-    User.findByID(req.parans.id)
+  getmachineByID(req,res,next){
+    machine.findByID(req.parans.id)
     .then((data)=>{
       res.json({
-        user:data
+        data
       });
     })
   }
 
-  updateUserById(req, res, next) {
-    let user = req.body;
+  updatemachineById(req, res, next) {
+    let machine = req.body;
 
-    User.updateOne(
+    machine.updateOne(
       {
         _id: req.params.id,
       },
       {
-        $set: user,
+        $set: machine,
       },
       {
         upsert: true,
@@ -90,8 +90,8 @@ class UserController {
       });
   }
   
-  deleteUserByID(req, res, next){
-    User.findByIdAndDelete(req.params.id)
+  deletemachineByID(req, res, next){
+    machine.findByIdAndDelete(req.params.id)
     .then((success)=>{
       res.json(success);
     })

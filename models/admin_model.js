@@ -1,7 +1,7 @@
 const mongoose  = require ("mongoose");
 
 
-const FarmerSchema = new mongoonse.Schema(
+const AdminSchema = new mongoonse.Schema(
     {
         firstname: {
             type: String,
@@ -31,10 +31,10 @@ const FarmerSchema = new mongoonse.Schema(
         },
         role: {
             type: String,
-            enum: ["farmer"]
+            enum: ["admin"]
         }
     }
 )
 
-const farmers = mongoose.model("farmers", FarmerSchema);
-module.exports = farmers;
+const admins = mongoose.model("admins", AdminSchema);
+module.exports = admins;

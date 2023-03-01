@@ -6,7 +6,7 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 const userController = new UserController();
 
 router.post("/register", userController.register);
-router.get("/:id",isLoggedIn,isAdmin,userController.updateUserById);
+router.get("/update",isLoggedIn,isAdmin,userController.updateUserById);
 router.get("/fetch",userController.getUser);
 router.get("/:id",userController.getUserByID);
 router.delete("/:id",isLoggedIn, isAdmin,userController.deleteUserByID);

@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
-const User = require("../models/users_model");
+const farmers = require("../models/farmer_model");
 
 const salt = 1000;
 
 class UserController {
   register(req, res, next) {
     const payload = req.body;
-    const newuser = new User(payload);
-    newuser.save().then((data)=>{
+    const newfarmer = new farmers(payload);
+    newfarmer.save().then((data)=>{
       res.json({
         msg: "la data aayo",
         data
@@ -27,12 +27,12 @@ class UserController {
           err,
         });
       }
-      newuser.password=hash;
-      newuser.save()
+      newfarmer.password=hash;
+      newfarmer.save()
       .then((data) => {
         res.json({
-          msg: "user saved successfully",
-          user: data,
+          msg: "farmer saved successfully",
+          data,
         });
       })
       .catch((err) => {
@@ -44,12 +44,12 @@ class UserController {
     });
   }
 
-  getUser(req,res,next){
-    User.find()
+  getfarmer(req,res,next){
+    farmers.find()
     .then((data) =>{
       res.json({
-        msg:"user successfully fetched",
-        user:data,
+        msg:"farmer successfully fetched",
+        data,
       });
     })
     .catch((err)=>{
@@ -59,24 +59,24 @@ class UserController {
       });
     });
   }
-  getUserByID(req,res,next){
+  getfarmerByID(req,res,next){
     User.findByID(req.parans.id)
     .then((data)=>{
       res.json({
-        user:data
+        data
       });
     })
   }
 
-  updateUserById(req, res, next) {
-    let user = req.body;
+  updatefarmerById(req, res, next) {
+    let farmer = req.body;
 
-    User.updateOne(
+    farmer.updateOne(
       {
         _id: req.params.id,
       },
       {
-        $set: user,
+        $set: farmer,
       },
       {
         upsert: true,
@@ -90,8 +90,8 @@ class UserController {
       });
   }
   
-  deleteUserByID(req, res, next){
-    User.findByIdAndDelete(req.params.id)
+  deletefarmerByID(req, res, next){
+    farmers.findByIdAndDelete(req.params.id)
     .then((success)=>{
       res.json(success);
     })

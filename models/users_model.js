@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
 
-const AddressSchema = new mongoose.Schema({
-    district: {
-      type: String,  
-    },
-  });
 
-const UserSchema = new mongoose.Schema(
-  {
+const UserSchema = new mongoose.Schema( 
+  { 
+
     firstName: {
       type: String, //Number, ObjectId, null, data
       required: true,
@@ -30,7 +26,8 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     address: {
-      permanentAddress: AddressSchema,
+      type: String,
+      required: true,
     },
     role: {
       type: String,
@@ -46,7 +43,11 @@ const UserSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
+
+
 );
 
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
+
+
