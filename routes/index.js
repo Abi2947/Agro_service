@@ -17,8 +17,8 @@ router.use("/category", catRoute);
 router.use("/product", productRoute);
 router.use("/order", orderRoute);
 router.use("/admin", adminRoute);
-route.use("/farmer",farmerRoute);
-route.use("/machine",machineRout);
+router.use("/farmer",farmerRoute);
+router.use("/machine",machineRout);
 router.use("/plot",plotRoute);
 
 module.exports = router;

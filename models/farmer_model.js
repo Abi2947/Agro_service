@@ -1,7 +1,7 @@
 const mongoose  = require ("mongoose");
 
 
-const FarmerSchema = new mongoonse.Schema(
+const FarmerSchema = new mongoose.Schema(
     {
         firstname: {
             type: String,

@@ -1,7 +1,7 @@
 const mongoose  = require ("mongoose");
 
 
-const PlotSchema = new mongoonse.Schema(
+const PlotSchema = new mongoose.Schema(
     {
         firstname: {
             type: String,
