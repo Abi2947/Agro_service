@@ -59,21 +59,27 @@ class UserController {
       });
     });
   }
-  getUserByID(req,res,next){
-    User.findByID(req.parans.id)
+  getUserByname(req,res,next){
+    User.findByname(req.parans.firstname)
     .then((data)=>{
       res.json({
         user:data
       });
     })
+    .catch((err)=>{
+      res.json({
+        msg:"Something went wrong",
+        data:null,
+      });
+    });
   }
 
-  updateUserById(req, res, next) {
+  updateUserByname(req, res, next) {
     let user = req.body;
 
     User.updateOne(
       {
-        _id: req.params.id,
+        _firstname: req.params.firstname,
       },
       {
         $set: user,

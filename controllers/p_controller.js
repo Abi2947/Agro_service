@@ -59,8 +59,8 @@ class UserController {
       });
     });
   }
-  getplotByID(req,res,next){
-    plots.findByID(req.parans.id)
+  getplotByname(req,res,next){
+    plots.findByname(req.parans.firstname)
     .then((data)=>{
       res.json({
         data
@@ -68,12 +68,12 @@ class UserController {
     })
   }
 
-  updateplotById(req, res, next) {
+  updateplotByname(req, res, next) {
     let plots = req.body;
 
     plots.updateOne(
       {
-        _id: req.params.id,
+        _firstname: req.params.firstname,
       },
       {
         $set: plots,
@@ -91,7 +91,7 @@ class UserController {
   }
   
   deleteplotByID(req, res, next){
-    plots.findByIdAndDelete(req.params.id)
+    plots.findByIDAndDelete(req.params.id)
     .then((success)=>{
       res.json(success);
     })

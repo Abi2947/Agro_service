@@ -59,8 +59,8 @@ class UserController {
       });
     });
   }
-  getfarmerByID(req,res,next){
-    User.findByID(req.parans.id)
+  getfarmerByname(req,res,next){
+    User.findByname(req.parans.firstname)
     .then((data)=>{
       res.json({
         data
@@ -68,12 +68,12 @@ class UserController {
     })
   }
 
-  updatefarmerById(req, res, next) {
+  updatefarmerByname(req, res, next) {
     let farmer = req.body;
 
     farmer.updateOne(
       {
-        _id: req.params.id,
+        _firstname: req.params.firstname,
       },
       {
         $set: farmer,
@@ -91,7 +91,7 @@ class UserController {
   }
   
   deletefarmerByID(req, res, next){
-    farmers.findByIdAndDelete(req.params.id)
+    farmers.findByIDAndDelete(req.params.id)
     .then((success)=>{
       res.json(success);
     })

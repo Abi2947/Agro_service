@@ -31,7 +31,7 @@ class UserController {
       newmachine.save()
       .then((data) => {
         res.json({
-          msg: "plot saved successfully",
+          msg: "machine saved successfully",
           data,
         });
       })
@@ -48,7 +48,7 @@ class UserController {
     plots.find()
     .then((data) =>{
       res.json({
-        msg:"plot successfully fetched",
+        msg:"machine successfully fetched",
         data,
       });
     })
@@ -59,8 +59,8 @@ class UserController {
       });
     });
   }
-  getmachineByID(req,res,next){
-    machine.findByID(req.parans.id)
+  getmachineByname(req,res,next){
+    machine.findByname(req.parans.firstname)
     .then((data)=>{
       res.json({
         data
@@ -68,12 +68,12 @@ class UserController {
     })
   }
 
-  updatemachineById(req, res, next) {
+  updatemachineByname(req, res, next) {
     let machine = req.body;
 
     machine.updateOne(
       {
-        _id: req.params.id,
+        _firstname: req.params.firstname,
       },
       {
         $set: machine,

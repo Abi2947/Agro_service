@@ -60,8 +60,8 @@ class UserController {
       });
     });
   }
-  getadminByID(req,res,next){
-    User.findByID(req.parans.id)
+  getadminByname(req,res,next){
+    User.findByname(req.parans.name)
     .then((data)=>{
       res.json({
         data
@@ -69,12 +69,12 @@ class UserController {
     })
   }
 
-  updateadminById(req, res, next) {
+  updateadminByname(req, res, next) {
     let admin = req.body;
 
     admin.updateOne(
       {
-        _id: req.params.id,
+        _firstname: req.params.firstname,
       },
       {
         $set: admin,

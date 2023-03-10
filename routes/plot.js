@@ -6,15 +6,15 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 const plotController = new PlotController();
 
 router.post("/register", plotController.register);
-router.get("/update",isLoggedIn,isAdmin,plotController.updateplotById);
+router.get("/update",isLoggedIn,isAdmin,plotController.updateplotByname);
 router.get("/fetch",plotController.getplot);
-router.get("/:id",plotController.getplotByID);
+router.get("/name",plotController.getplotByname);
 router.delete("/:id",isLoggedIn, isAdmin,plotController.deleteplotByID);
 
 router
     .route("/:id")
-    .get(isLoggedIn, isAdmin, plotController.getplotByID)
-    .put(isLoggedIn, plotController.updateplotById)
+    .get(isLoggedIn, isAdmin, plotController.getplotByname)
+    .put(isLoggedIn, plotController.updateplotByname)
     .delete(isLoggedIn, plotController.deleteplotByID);
 
 

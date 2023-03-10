@@ -6,15 +6,15 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 const machineController = new MachineController();
 
 router.post("/register", machineController.register);
-router.get("/update",isLoggedIn,isAdmin,machineController.updatemachineById);
+router.get("/update",isLoggedIn,isAdmin,machineController.updatemachineByname);
 router.get("/fetch",machineController.getmachine);
-router.get("/:id",machineController.getmachineByID);
+router.get("/name",machineController.getmachineByname);
 router.delete("/:id",isLoggedIn, isAdmin,machineController.deletemachineByID);
 
 router
     .route("/:id")
-    .get(isLoggedIn, isAdmin, machineController.getmachineByID)
-    .put(isLoggedIn, machineController.updatemachineById)
+    .get(isLoggedIn, isAdmin, machineController.getmachineByname)
+    .put(isLoggedIn, machineController.updatemachineByname)
     .delete(isLoggedIn, machineController.deletemachineByID);
 
 

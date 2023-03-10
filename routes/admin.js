@@ -6,15 +6,15 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 const adminController = new AdminController();
 
 router.post("/register", adminController.register);
-router.get("/update",isLoggedIn,isAdmin,adminController.updateadminById);
+router.get("/update",isLoggedIn,isAdmin,adminController.updateadminByname);
 router.get("/fetch",adminController.getadmin);
-router.get("/:id",adminController.getadminByID);
+router.get("/name",adminController.getadminByname);
 router.delete("/:id",isLoggedIn, isAdmin,adminController.deleteadminByID);
 
 router
     .route("/:id")
-    .get(isLoggedIn, isAdmin, adminController.getadminByID)
-    .put(isLoggedIn, adminController.updateadminById)
+    .get(isLoggedIn, isAdmin, adminController.getadminByname)
+    .put(isLoggedIn, adminController.updateadminByname)
     .delete(isLoggedIn, adminController.deleteadminByID);
 
 
