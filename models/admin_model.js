@@ -2,13 +2,9 @@ const mongoose  = require ("mongoose");
 
 const AdminSchema = new mongoose.Schema(
     {
-        firstname: {
+        fullname: {
             type: String,
             reequired: true,
-        },
-        lastName: {
-            type: String,
-            required: true,
         },
         email: {
             type: String,
@@ -27,10 +23,6 @@ const AdminSchema = new mongoose.Schema(
         address: {
             type: String,
             required: true,
-        },
-        role: {
-            type: String,
-            enum: ["admin"]
         }
     }
 )

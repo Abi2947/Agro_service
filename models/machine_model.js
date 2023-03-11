@@ -3,13 +3,9 @@ const mongoose  = require ("mongoose");
 
 const MachineSchema = new mongoose.Schema(
     {
-        firstname: {
+        fullname: {
             type: String,
             reequired: true,
-        },
-        lastName: {
-            type: String,
-            required: true,
         },
         email: {
             type: String,
@@ -28,10 +24,6 @@ const MachineSchema = new mongoose.Schema(
         address: {
             type: String,
             required: true,
-        },
-        role: {
-            type: String,
-            enum: ["machine_owner"]
         }
     }
 )
