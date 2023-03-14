@@ -6,7 +6,7 @@ const salt = 1000;
 class UserController {
   register(req, res, next) {
     const payload = req.body;
-    const newmachine = new plots(payload);
+    const newmachine = new machine(payload);
     newmachine.save().then((data)=>{
       res.json({
         msg: "la data aayo",
@@ -45,7 +45,7 @@ class UserController {
   }
 
   getmachine(req,res,next){
-    plots.find()
+    machine.find()
     .then((data) =>{
       res.json({
         msg:"machine successfully fetched",
